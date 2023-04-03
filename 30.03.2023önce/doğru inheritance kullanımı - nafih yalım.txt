@@ -1,0 +1,145 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace KusHiyerarsisi
+{
+
+    interface IYuzmeDavranisi
+    {
+        void Yuzmek();
+    }
+
+    interface IUcmaDavranisi
+    {
+        void Ucmak();
+    }
+
+    interface IKonusmaDavranisi
+    {
+        void Konusmak();
+    }
+
+    interface IDogurganlik
+    {
+        void Dogurmak();
+    }
+
+    abstract class Kus
+    {
+        public virtual string KusAdi { get; set; }
+        public string KusTipi = "Genel kuþ tipi";
+
+        public void OzellikleriGoster()
+        {
+            Console.WriteLine("{0}'in yetenekleri belirsizdir...kuþtan kuþa deðiþir.", KusAdi);
+        }
+
+    }
+
+    class Papagan : Kus, IKonusmaDavranisi, IUcmaDavranisi
+    {
+        public Papagan(string KusAdi)
+        {
+            this.KusAdi = KusAdi;
+            base.KusTipi = "Papaðan";
+        }
+        
+        public override string KusAdi { get; set; }
+
+        public void Konusmak()
+        {
+            Console.WriteLine("{0}'in {1} konusmasi 'insanýnki gibidir'", KusAdi, KusTipi);
+        }
+
+        public void Ucmak()
+        {
+            Console.WriteLine("{0}'in standart kuþ uçuþu", KusAdi);
+        }
+    }
+    class Penguen : Kus, IYuzmeDavranisi, IKonusmaDavranisi
+    {
+        public Penguen(string KusAdi)
+        {
+            this.KusAdi = KusAdi;
+            base.KusTipi = "Penguen";
+        }
+
+        public override string KusAdi { get; set; }
+
+        public void Konusmak()
+        {
+            Console.WriteLine("{0}'nýn {1} konusmasi 'wak wak'", KusAdi, KusTipi);
+        }
+
+        public void Yuzmek()
+        {
+            Console.WriteLine("{0}'nýn {1} yüzüþü 'yüzebilen tek kuþ türüdür'", KusAdi, KusTipi);
+        }
+    }
+    class Yarasa : Kus, IKonusmaDavranisi, IUcmaDavranisi, IDogurganlik
+    {
+        public Yarasa(string KusAdi)
+        {
+            this.KusAdi = KusAdi;
+            base.KusTipi = "Yarasa";
+        }
+
+        public override string KusAdi { get; set; }
+
+        public void Dogurmak()
+        {
+            Console.WriteLine("{0}'in {1} yumurtlamasý 'memeli olan tek kuþ türü olduðu için'", KusAdi, KusTipi);
+        }
+
+        public void Konusmak()
+        {
+            Console.WriteLine("{0}'in {1} konusmasi 'Cik cik'", KusAdi, KusTipi);
+        }
+
+        public void Ucmak()
+        {
+            Console.WriteLine("{0}'in standart kuþ uçuþu", KusAdi);
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Penguen penguen = new Penguen("yusuf");
+            Yarasa yarasa = new Yarasa("nafih");
+            Papagan papagan = new Papagan("talha");
+            Kus genelkus = new Papagan("Cenkalp");
+
+            genelkus.OzellikleriGoster();
+
+            Console.WriteLine("\n**************************************\n");
+
+            penguen.Konusmak();
+            yarasa.Konusmak();
+            papagan.Konusmak();
+
+            Console.WriteLine("\n**************************************\n");
+
+            penguen.Yuzmek();
+            yarasa.Dogurmak();
+
+            Console.WriteLine("\n**************************************\n");
+
+            yarasa.Ucmak();
+            papagan.Ucmak();
+
+            Console.WriteLine("\n**************************************\n");
+
+            yarasa.Dogurmak();
+
+            Console.ReadKey();
+
+
+        }
+    }
+}

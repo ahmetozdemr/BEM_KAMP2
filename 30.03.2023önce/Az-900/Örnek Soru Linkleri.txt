@@ -1,0 +1,20 @@
+Merhaba,
+*AZ-900 Microsoft Azure Fundamentals* sınavı için aşağıdaki web sitelerinde çok güzel ve çok sayıda soru yer alıyor. Bu siteler toplam 1000 den fazla soru içeriyor, kaynak olarak kullanılabilir.
+
+*AZ-900: Microsoft Azure Fundamentals*
+https://www.passnexam.com/microsoft/az-900/1
+
+*Azure AZ-900 Exam Preparation*
+https://sites.google.com/site/depthjava/azure/az-900?pli=1
+
+*Microsoft AZ-900 Exam Actual Questions*
+https://www.examtopics.com/exams/microsoft/az-900/view/1/
+
+*AZ-900 Microsoft Azure Fundamentals Exam Questions and Answers – Page 1*
+https://pupuweb.com/microsoft-azure-fundamentals-az900-actual-exam-question-answer-dumps/
+
+*AZ-900 Microsoft Azure Fundamentals Exam Questions and Answers – Page 2*
+https://pupuweb.com/microsoft-azure-fundamentals-az900-actual-exam-question-answer-dumps-2/
+
+*AZ-900 Microsoft Azure Fundamentals Exam Questions and Answers – Page 3*
+https://pupuweb.com/microsoft-azure-fundamentals-az900-actual-exam-question-answer-dumps-3/

@@ -1,0 +1,75 @@
+ ev ev1 = new ev() 
+                { ad = "Hakkı", 
+                soyad = "Bulut", 
+                il = "Edirne", 
+                ilce = "Merkez", 
+                mahalle = "Bosnaköy", 
+                hisse = "Tam", 
+                nitelik = "Arsa", 
+                yuzOlcumu = 5000, 
+                tarih = "23.03.2023" };
+           // ev1.olustur();
+
+            kontrol k1=new kontrol();
+            k1.kontrolet(ev1);
+
+            
+        }
+    }
+    interface ITapu
+    {
+        string ad { get; set; }
+        string soyad { get; set; }
+        string tarih { get; set; }
+        string nitelik { get; set; }
+        string hisse { get; set; }
+        int yuzOlcumu { get; set; }
+        string il { get; set; }
+        string ilce { get; set; }
+        string mahalle { get; set; }
+        public void olustur();
+    }
+    class ev : ITapu
+    {
+        public string ad    { get; set ; }
+        public string soyad { get; set ; }
+        public string tarih { get; set ; }
+        public string nitelik { get; set; }
+        public string hisse   { get; set; }
+        public int yuzOlcumu  { get; set; }
+        public string il      { get; set; }
+        public string ilce    { get; set; }
+        public string mahalle { get; set; }
+
+        public void olustur()
+        {
+            Console.WriteLine("Ev Tapusu Oluşturuldu.");
+            Console.WriteLine("Adı: "+ad+"\n"+"Soyadı: "+soyad+"\n"+"İl: "+il+"\n"+"İlce:"+ilce+"\n"+"Mahalle: "+mahalle+"\n"+"Hissesi: "+hisse+"\n"+"Yüzölçümü: "+yuzOlcumu+"m2"+"\n"+"Tarih: "+tarih);
+        }
+    }
+
+    class arsa : ITapu
+    {
+        public string ad    { get; set; }
+        public string soyad { get; set; }
+        public string tarih { get; set; }
+        public string nitelik { get; set; }
+        public string hisse   { get; set; }
+        public int yuzOlcumu  { get; set; }
+        public string il      { get; set; }
+        public string ilce    { get; set; }
+        public string mahalle { get; set; }
+
+        public void olustur()
+        {
+            Console.WriteLine("Arsa Tapusu Oluşturuldu.");
+        }
+    }
+    class kontrol
+    {
+        public void kontrolet(ITapu tapu)
+        {
+            tapu.olustur();
+        }
+    }
+}

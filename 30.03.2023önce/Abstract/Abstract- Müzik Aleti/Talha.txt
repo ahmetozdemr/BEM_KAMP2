@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication24
+{
+    abstract class Alet
+    {
+        public string ses { get; set; }
+        public abstract void cal();
+    }
+    class Keman:Alet
+    {
+        public Keman()
+        {
+            ses = "Gýy Gýy Gýy";
+        }
+        public override void cal()
+        {
+            Console.WriteLine(ses);
+        }
+    }
+    class Davul : Alet
+    {
+        public Davul()
+        {
+            ses = "Bam Bam Bam";
+        }
+        public override void cal()
+        {
+            Console.WriteLine(ses);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Keman keman = new Keman();
+            Davul davul = new Davul();
+            Console.WriteLine("Keman Çalýyor");
+            keman.cal();
+            Console.WriteLine("Davul Çalýyor");
+            davul.cal();
+            Console.ReadKey();
+        }
+    }
+}

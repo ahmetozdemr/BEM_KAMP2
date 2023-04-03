@@ -1,0 +1,75 @@
+#region Etcil Otcul AbsTract Örneği
+            OtculHayvan tavsan = new OtculHayvan();
+            tavsan.Ad = "Tavşan";
+            tavsan.Agirlik = 2;
+            tavsan.Boy = 20;
+            tavsan.Yas = 1;
+
+            EtcilHayvan aslan = new EtcilHayvan();
+            aslan.Ad = "Aslan";
+            aslan.Agirlik = 200;
+            aslan.Boy = 150;
+            aslan.Yas = 10;
+
+            tavsan.ad();
+            tavsan.Beslen();
+            tavsan.HareketEt();
+            Console.WriteLine("-------------");
+            aslan.ad();
+            aslan.Beslen();
+            aslan.HareketEt();
+
+            Console.ReadLine();
+        }
+        public abstract class Hayvan
+        {
+            public string Ad { get; set; }
+            public int Agirlik { get; set; }
+            public int Boy { get; set; }
+            public int Yas { get; set; }
+
+            // Beslenme metodu, her hayvanın kendi beslenme şekline göre farklılık gösterebilir
+            public abstract void Beslen();
+
+            // Hareket metodu, her hayvanın kendi hareket şekline göre farklılık gösterebilir
+            public abstract void HareketEt();
+            public abstract void ad();
+        }
+
+        // Otcul hayvan sınıfı, Hayvan sınıfından kalıtım alır
+        public class OtculHayvan : Hayvan
+        {
+            public override void ad()
+            {
+                Console.WriteLine("ZıpZıp Hayri");
+            }
+
+            public override void Beslen()
+            {
+                Console.WriteLine("Ot yiyerek beslenir.");
+            }
+
+            public override void HareketEt()
+            {
+                Console.WriteLine("Dört ayak üzerinde hareket eder.");
+            }
+        }
+
+        // Etçil hayvan sınıfı, Hayvan sınıfından kalıtım alır
+        public class EtcilHayvan : Hayvan
+        {
+            public override void ad()
+            {
+                Console.WriteLine("Irz Düşmanı icardi");
+            }
+            public override void Beslen()
+            {
+                Console.WriteLine("Et yiyerek beslenir.");
+            }
+
+            public override void HareketEt()
+            {
+                Console.WriteLine("Hızlı koşarak hareket eder.");
+            }
+        }
+        #endregion

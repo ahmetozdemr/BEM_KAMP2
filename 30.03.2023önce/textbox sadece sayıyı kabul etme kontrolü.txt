@@ -1,0 +1,24 @@
+Nafih
+-----
+private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+{
+    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+        (e.KeyChar != '.'))
+    {
+            e.Handled = true;
+    }
+
+    // only allow one decimal point
+    if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+    {
+        e.Handled = true;
+    }
+}
+
+
+Talha |
+-------
+harf girilmesini istemediðimiz textbox'un eventleriiçersinden KeyPress eventine çift týklýyoruz.
+Aþaðýdaki kodu içine yapýþtýrýyoruz.
+ 
+e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);

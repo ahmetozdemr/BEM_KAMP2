@@ -1,0 +1,78 @@
+static void Main(string[] args)
+        {
+
+            Mudur mudur = new Mudur();
+            mudur.ad = "Ali";
+            mudur.maas = 15000;
+
+            Console.WriteLine("adı : " + mudur.ad + " olan kişinin maaşı : " + mudur.Mesai_Hesapla(2));
+            Console.WriteLine("görevi "); mudur.Gorev();
+
+            Console.Read();
+        }
+
+        abstract class Calisan
+        {
+            public string ad { get; set; }
+            public int maas { get; set; }
+
+            abstract public void Gorev();
+            abstract public double Mesai_Hesapla(byte saat);
+        }
+
+        class Mudur : Calisan
+        {
+
+            public override void Gorev()
+            {
+                Console.WriteLine("Onaylamak");
+            }
+
+            public override double Mesai_Hesapla(byte saat1)
+            {
+                return this.maas + (2 * saat1);
+            }
+        }
+
+        class Memur : Calisan
+        {
+
+            public override void Gorev()
+            {
+                Console.WriteLine("Evrak Hazırlama");
+            }
+
+            public override double Mesai_Hesapla(byte saat1)
+            {
+                return this.maas + (1.5 * saat1);
+            }
+        }
+
+        class Sekreter : Calisan
+        {
+
+
+            public override void Gorev()
+            {
+                Console.WriteLine("Telefonlara bakmak");
+            }
+
+            public override double Mesai_Hesapla(byte saat1)
+            {
+                return this.maas + (1 * saat1);
+            }
+        }
+
+        class Guvenlikci : Calisan
+        {
+
+            public override void Gorev()
+            {
+                Console.WriteLine("Giriş/Çıkış Kontrol");
+            }
+
+            public override double Mesai_Hesapla(byte saat1)
+            {
+                return this.maas + (1 * saat1);
+            }
+        }

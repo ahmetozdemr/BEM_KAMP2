@@ -1,0 +1,49 @@
+ static void Main(string[] args)
+        {  
+            Console.WriteLine("Tür Seçimi Yapınız"+"\n1-Hayvan"+"\n2-Bitki");
+            string secim=Console.ReadLine();
+            if (secim=="1")
+            {
+                hayvan e1 = new hayvan();
+                e1.tür = "Hayvan";
+                e1.yaptiklari = "Avlanmak,Aile Kurmak";
+                e1.yaz();
+            }
+            else if (secim =="2")
+            {
+                bitki o1 = new bitki();
+                o1.tür = "Bitki";
+                o1.yaptiklari = "Oksijen Üretmek, Yemek Olmak";
+                o1.yaz();
+            }
+        }
+    }
+    abstract class canlı
+    {
+        abstract public string tür { get; set; }
+        abstract public string yaptiklari { get; set; }
+
+        abstract public void yaz();
+
+    }
+    class hayvan : canlı
+    {
+        public override string tür { get; set; }
+        public override string yaptiklari { get; set; }
+
+        public override void yaz()
+        {
+            Console.WriteLine("Türü: "+tür+"\n"+"Yaptıkları: "+yaptiklari);
+        }
+    }
+    class bitki : canlı
+    {
+        public override string tür { get; set; }
+        public override string yaptiklari { get; set; }
+
+        public override void yaz()
+        {
+            Console.WriteLine("Türü: " + tür + "\n" + "Yaptıkları: " + yaptiklari);
+        }
+    }
+}

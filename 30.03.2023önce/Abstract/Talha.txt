@@ -1,0 +1,134 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication23
+{
+    class Ayakkabi
+    {
+        public string renk { get; set; }
+        int numara;
+        public string tur { get; set; }
+        public int Numara
+        {
+            get
+            {
+                return numara;
+            }
+
+            set
+            {
+                if (value < 20 || value > 50)
+                {
+                    Console.WriteLine("Bu þekilde bir Numara girilemez. Default deðer kullanýldý = 40");
+                    numara = 40;
+                }
+                else
+                {
+                    numara = value;
+                }
+            }
+        }
+        public double Fiyat
+        {
+            get
+            {
+                return fiyat;
+            }
+
+            set
+            {
+                if (value < 0 || value > 500)
+                {
+                    Console.WriteLine("Bu þekilde bir Fiyat girilemez. Default deðer kullanýldý = 200");
+                    fiyat = 200;
+                }
+                else
+                {
+                    fiyat = value;
+                }
+            }
+        }
+        protected bool bagcik;
+        public string bagcik2;
+        double fiyat;
+        public virtual void bilgiGetir()
+        {
+            Console.WriteLine("{3} \nRenk : {0}\nNumara : {1}\n{2}\nFiyat {4} TL", renk, Numara, bagcik2,tur,Fiyat);
+        }
+    }
+    class Bot : Ayakkabi
+    {
+        
+        public Bot(string renk,int numara,double fiyat)
+        {
+            base.tur = "Bot";
+            base.bagcik = true;
+            Numara=numara;
+            Fiyat=fiyat;
+            this.renk = renk;
+            this.bagcik2 = base.bagcik ? "Baðcýk Var" : "Baðcýk Yok";
+        }
+    }
+    class Babet : Ayakkabi
+    {
+        public Babet(string renk, int numara,double fiyat)
+        {
+            base.tur = "Babet";
+            base.bagcik = false;
+            Numara = numara;
+            Fiyat = fiyat;
+            this.renk = renk;
+            this.bagcik2 = base.bagcik ? "Baðcýk Var" : "Baðcýk Yok";
+        }
+    }
+    class SporAyakkabi : Ayakkabi
+    {
+        public SporAyakkabi(string renk, int numara,double fiyat)
+        {
+            base.tur = "Spor Ayakkabý";
+            base.bagcik = true;
+            this.renk = renk;
+            Numara = numara;
+            Fiyat = fiyat;
+            this.bagcik2 = base.bagcik ? "Baðcýk Var" : "Baðcýk Yok";
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            Console.Write("Numarayý girin : ");
+            int num = int.Parse(Console.ReadLine());
+            Console.Write("Rengi girin : ");
+            string rengi = Console.ReadLine();
+            Console.Write("Fiyatýný girin : ");
+            double fiyat= Convert.ToDouble(Console.ReadLine());
+            label:
+            Console.WriteLine("Hangisi \nBot : 1\nBabet : 2\nSpor Ayakkabý : 3");
+            int kontrol = int.Parse(Console.ReadLine());
+            switch (kontrol)
+            {
+                case 1:
+                    Bot bot = new Bot(rengi, num,fiyat);
+                    bot.bilgiGetir();
+                    break;
+                case 2:
+                    Babet babet = new Babet(rengi, num, fiyat);
+                    babet.bilgiGetir();
+                    break;
+                case 3:
+                    SporAyakkabi spor = new SporAyakkabi(rengi, num, fiyat);
+                    spor.bilgiGetir();
+                    break;
+                default:
+                    Console.Clear();
+                    goto label;
+            }
+            Console.ReadKey();
+        }
+    }
+}

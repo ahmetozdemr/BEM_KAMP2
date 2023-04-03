@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication45
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Aslan aslan = new Aslan();
+            aslan.ayak_sayi = 4;
+            aslan.hayvan_turu = "büyük kedigil";
+
+            Console.WriteLine("Aslanın Özellikleri:");
+            Console.WriteLine("Ayak sayısı: " + aslan.ayak_sayi);
+            Console.WriteLine("Türü:" + aslan.hayvan_turu);
+            aslan.Beslenme_Ozelligi();
+
+            Console.WriteLine("\n");
+
+            Koyun koyun = new Koyun();
+            koyun.ayak_sayi = 4;
+            koyun.hayvan_turu = "Memeli";
+
+            Console.WriteLine("Koyunun Özellikleri:");
+            Console.WriteLine("Ayak sayısı: " + koyun.ayak_sayi);
+            Console.WriteLine("Türü:" + koyun.hayvan_turu);
+            koyun.Beslenme_Ozelligi();
+
+            Console.ReadKey();
+
+        }}
+    abstract class Hayvan
+    {}
+
+    abstract class Etcil_Beslenen : Hayvan
+    {
+        abstract public byte ayak_sayi { get; set; }
+        abstract public string hayvan_turu { get; set; }
+
+        abstract public void Beslenme_Ozelligi();
+    }
+
+    abstract class Otcul_Beslenen : Hayvan
+    {
+        abstract public byte ayak_sayi { get; set; }
+        abstract public string hayvan_turu { get; set; }
+
+        abstract public void Beslenme_Ozelligi();
+    }
+
+    class Aslan : Etcil_Beslenen
+    {
+        public override byte ayak_sayi { get; set; }
+        public override string hayvan_turu { get; set; }
+
+        public override void Beslenme_Ozelligi()
+        {
+            Console.WriteLine("Bu hayvan et ile besleniyor");
+        }}
+
+    class Koyun : Otcul_Beslenen
+    {
+        public override byte ayak_sayi { get; set; }
+        public override string hayvan_turu { get; set; }
+
+        public override void Beslenme_Ozelligi()
+        {
+            Console.WriteLine("Bu hayvan ot ile besleniyor");
+        }}}

@@ -1,0 +1,59 @@
+
+internal class Program
+{
+    //etçil ve otçul diye iki metod ve etçil ve otçul diye iki alt class
+    // ayak sayısı, 
+    static void Main(string[] args)
+    {
+        Aslan aslan = new Aslan();
+        Koyun koyun = new Koyun();
+
+        aslan.ad = "Aslan";
+        aslan.ayaksayisi = 4;
+
+        koyun.ad = "Koyun";
+        koyun.ayaksayisi = 4;
+
+        Console.WriteLine($"{aslan.ad} {aslan.Ettcil()} ve {aslan.ayaksayisi} ayağı vardır.");
+        Console.WriteLine($"{koyun.ad} {koyun.Ottcul()} ve {koyun.ayaksayisi} ayağı vardır.");
+
+     
+
+    }
+
+    class Hayvanlar
+    {
+       public string ad { get; set; }
+       public int ayaksayisi { get; set; }
+
+    }
+
+    abstract class Etcil : Hayvanlar
+    {
+        abstract public string Ettcil();
+    }
+
+    abstract class Otcul : Hayvanlar
+    {
+        abstract public string Ottcul();
+
+    }
+
+    class Aslan : Etcil
+    {
+        public override string Ettcil()
+        {
+            return "bir etçil hayvandır.";
+        }
+    }
+
+    class Koyun : Otcul
+    {
+        public override string Ottcul()
+        {
+            return "bir otçul hayvandır.";
+        }
+    }
+
+
+}

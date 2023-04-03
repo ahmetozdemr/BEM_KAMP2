@@ -1,0 +1,106 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bilgisayar
+{
+    class Bilgisayar
+    {
+        public string Marka { get; set; }
+        public int Ram { get; set; }
+        public double CPU { get; set; }
+        public virtual void ozellikGoster()
+        {
+            Console.WriteLine("Ana Class");
+        }
+    }
+    class Notebook : Bilgisayar
+    {
+        public double agirlik { get; set; }
+        public Notebook(string marka,int ram,double cpu,double agirlik)
+        {
+            this.Marka = marka;
+            this.Ram = ram;
+            this.CPU = cpu;
+            this.agirlik = agirlik;
+        }
+        public override void ozellikGoster()
+        {
+            Console.WriteLine("Marka : {0}\nRam : {1} MB\nCPU : {2} GHz\nAðýrlýk : {3} Kg", Marka, Ram, CPU,agirlik);
+        }
+    }
+    class Telefon : Bilgisayar
+    {
+        public bool dokunmatik { get; set; }
+        public string dokun;
+        public Telefon(string marka, int ram, double cpu,bool dokunmatik)
+        {
+            this.Marka = marka;
+            this.Ram = ram;
+            this.CPU = cpu;
+            this.dokunmatik = dokunmatik;
+            dokun = this.dokunmatik ? "Dokunmatik" : "Dokunmatik Deðil";
+        }
+        public override void ozellikGoster()
+        {
+            Console.Write("Marka : {0}\nRam : {1}\nCPU : {2}", Marka, Ram, CPU);
+            
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int fiyatb = 0;
+            int fiyatt = 0;
+            Console.Write("Notebook için:\nMarka : ");
+            string marka = Console.ReadLine();
+            Console.Write("Ram : ");
+            int ram = Convert.ToInt32(Console.ReadLine());
+            Console.Write("CPU : ");
+            double cpu = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Aðýrlýk : ");
+            double agirlik= Convert.ToDouble(Console.ReadLine());
+            Notebook note = new Notebook(marka,ram,cpu,agirlik);
+
+            if (ram > 0 && ram <= 1000) { fiyatb = fiyatb + 1000; }
+            else if (ram <= 2000 && ram < 3000) { fiyatb = fiyatb + 2000; }
+            else if (ram >= 3000){fiyatb = fiyatb + 3000;}
+
+            if (cpu > 0 && cpu <= 1.4) { fiyatb = fiyatb + 1000; }
+            else if (cpu <= 2.4) { fiyatb = fiyatb + 3000; }
+            else if (cpu > 3.6) { fiyatb = fiyatb + 3000; }
+
+            Console.Write("\n\nTelefon için:\nMarka : ");
+            marka = Console.ReadLine();
+            Console.Write("Ram : ");
+            ram = Convert.ToInt32(Console.ReadLine());
+            Console.Write("CPU : ");
+            cpu = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Dokunmatik true / false : ");
+            bool dok = Convert.ToBoolean(Console.ReadLine());
+            Telefon tel = new Telefon(marka, ram, cpu, dok);
+
+            if (ram > 0 && ram <= 1000) { fiyatb = fiyatb + 1000; }
+            else if (ram <= 2000 && ram < 3000) { fiyatb = fiyatb + 2000; }
+            else if (ram > 3000) { fiyatb = fiyatb + 3000; }
+
+            if (cpu > 0 && cpu <= 1.4) { fiyatt = fiyatt + 1000; }
+            else if (cpu <= 2.4) { fiyatt = fiyatt + 3000; }
+            else if (cpu > 3.6) { fiyatt = fiyatt + 3000; }
+
+            if (tel.dokun=="Dokunmatik")
+            {
+                fiyatt = fiyatt + 1000;
+            }
+            Console.WriteLine("Notebook Fiyatý : {0} TL\nÖzellikleri",fiyatb);
+            note.ozellikGoster();
+            Console.WriteLine("\nTelefon Fiyatý : {0} TL\nÖzellikleri", fiyatt);
+            tel.ozellikGoster();
+
+            Console.ReadKey();
+        }
+    }
+}

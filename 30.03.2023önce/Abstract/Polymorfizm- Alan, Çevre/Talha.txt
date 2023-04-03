@@ -1,0 +1,170 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication19
+{
+    class Islem
+    {
+
+        public virtual double alan(params double[] dizi)
+        {
+            return dizi[0];
+        }
+        public virtual double cevre(params double[] dizi)
+        {
+            return dizi[0];
+        }
+
+    }
+    class Kare : Islem
+    {
+        public override double alan(params double[] dizi)
+        {
+            return dizi[0] * dizi[0];
+        }
+        public override double cevre(params double[] dizi)
+        {
+            return dizi[0] * 4;
+        }
+    }
+    class Dikdortgen : Islem
+    {
+        public override double alan(params double[] dizi)
+        {
+            return dizi[0] * dizi[1];
+        }
+        public override double cevre(params double[] dizi)
+        {
+            return (dizi[0] + dizi[1])*2;
+        }
+    }
+    class Daire: Islem
+    {
+        public override double alan(params double[] dizi)
+        {
+            return Math.PI * (dizi[0] * dizi[0]);
+        }
+        public override double cevre(params double[] dizi)
+        {
+            return 2 * Math.PI * dizi[0];
+        }
+    }
+    class Küp : Islem
+    {
+        public override double alan(params double[] dizi)
+        {
+            return 6 * (dizi[0] * dizi[0]);
+        }
+        public override double cevre(params double[] dizi)
+        {
+            return dizi[0] * dizi[0] * dizi[0];
+        }
+    }
+    class Dikdortgenlerprizmasi : Islem
+    {
+        public override double alan(params double[] dizi)
+        {
+            return 2 * ((dizi[0] + dizi[1] + dizi[0] + dizi[2] + dizi[1] + dizi[2]) * (dizi[0] + dizi[1] + dizi[0] + dizi[2] + dizi[1] + dizi[2]));
+        }
+        public override double cevre(params double[] dizi)
+        {
+            return dizi[0] * dizi[1] * dizi[2];
+        }
+    }
+    class Silindir : Islem
+    {
+        public override double alan(params double[] dizi)
+        {
+            return 2 * Math.PI * dizi[0] * (dizi[0] + dizi[1]);
+        }
+        public override double cevre(params double[] dizi)
+        {
+            return Math.PI * (dizi[0] * dizi[0]) * dizi[1];
+        }
+    }
+    class Kure : Islem
+    {
+        public override double alan(params double[] dizi)
+        {
+            return 2 * Math.PI * dizi[0] * (dizi[0] + dizi[1]);
+        }
+        public override double cevre(params double[] dizi)
+        {
+            return 4 / 3 * Math.PI * (dizi[0] * dizi[0] * dizi[0]);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double[] islem = new double[0];
+            Console.WriteLine("Hangisi ?\nKare \t\t\t: 1\nDikdörtgen\t        : 2\nDaire\t\t        : 3\nKüp \t\t\t: 4\nDikdörtgenlerPrizmasý   : 5\nSilindir\t        : 6\nKüre\t\t        : 7");
+            switch (Convert.ToInt32(Console.ReadLine()))
+            {
+                case 1:
+                    Console.WriteLine("Kenarý giriniz");
+                    Array.Resize(ref islem, islem.Length + 1);
+                    islem[0] = Convert.ToDouble(Console.ReadLine());
+                    Kare kare = new Kare();
+                    Console.WriteLine("Kare alan : {0:0.00}\nKare Çevre : {1:0.00}", kare.alan(islem[0]), kare.cevre(islem[0]));
+                    break;
+                case 2:
+                    Array.Resize(ref islem, islem.Length + 2);
+                    Console.WriteLine("Uzun Kenarý giriniz");
+                    islem[0] = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Kýsa Kenarý giriniz");
+                    islem[1] = Convert.ToDouble(Console.ReadLine());
+                    Dikdortgen dik = new Dikdortgen();
+                    Console.WriteLine("Dikdörtgen alan : {0:0.00}\nDikdörtgen Çevre : {1:0.00}", dik.alan(islem[0],islem[1]), dik.cevre(islem[0],islem[1]));
+                    break;
+                case 3:
+                    Array.Resize(ref islem, islem.Length + 1);
+                    Console.WriteLine("Yarýçapý giriniz");
+                    islem[0] = Convert.ToDouble(Console.ReadLine());
+                    Daire dai = new Daire();
+                    Console.WriteLine("Daire alan : {0:0.00}\nDaire Çevre : {1:0.00}", dai.alan(islem[0]), dai.cevre(islem[0]));
+                    break;
+                case 4:
+                    Array.Resize(ref islem, islem.Length + 1);
+                    Console.WriteLine("Yarýçapý giriniz");
+                    islem[0] = Convert.ToDouble(Console.ReadLine());
+                    Küp küp = new Küp();
+                    Console.WriteLine("Küp alan : {0:0.00}\nKüp Çevre : {1:0.00}", küp.alan(islem[0]), küp.cevre(islem[0]));
+                    break;
+                case 5:
+                    Array.Resize(ref islem, islem.Length + 3);
+                    Console.WriteLine("1. Kenarý giriniz");
+                    islem[0] = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("2. Kenarý giriniz");
+                    islem[1] = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("3. Kenarý giriniz");
+                    islem[2] = Convert.ToDouble(Console.ReadLine());
+                    Dikdortgenlerprizmasi dikp = new Dikdortgenlerprizmasi();
+                    Console.WriteLine("Dikdörtgenlerprizmasý alan : {0:0.00}\nDikdörtgenlerprizmasý Çevre : {1:0.00}", dikp.alan(islem[0], islem[1], islem[2]), dikp.cevre(islem[0], islem[1], islem[2]));
+                    break;
+                case 6:
+                    Array.Resize(ref islem, islem.Length + 2);
+                    Console.WriteLine("Taban Alaný giriniz");
+                    islem[0] = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Yükseklik giriniz");
+                    islem[1] = Convert.ToDouble(Console.ReadLine());
+                    Silindir sil = new Silindir();
+                    Console.WriteLine("Silindir alan : {0:0.00}\nSilindir Çevre : {1:0.00}", sil.alan(islem[0], islem[1]), sil.cevre(islem[0], islem[1]));
+                    break;
+                case 7:
+                    Array.Resize(ref islem, islem.Length + 2);
+                    Console.WriteLine("Yarýçap giriniz");
+                    islem[0] = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("Yükseklik giriniz");
+                    islem[1] = Convert.ToDouble(Console.ReadLine());
+                    Kure kur = new Kure();
+                    Console.WriteLine("Küre alan : {0:0.00}\nKüre Çevre : {1:0.00}", kur.alan(islem[0], islem[1]), kur.cevre(islem[0], islem[1]));
+                    break;
+            }
+            Console.ReadKey();
+        }
+    }
+}

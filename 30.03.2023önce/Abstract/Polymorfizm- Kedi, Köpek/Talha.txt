@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication18
+{
+    class Canli
+    {
+        public virtual void konus()
+        {
+            Console.WriteLine("Konuþuluyor.");
+        }
+    }
+    class Kopek : Canli
+    {
+        public override void konus()
+        {
+            Console.WriteLine("Hav Hav");
+        }
+    }
+    class Kedi : Canli
+    {
+        public override void konus()
+        {
+            Console.WriteLine("Miyav");
+        }
+    }
+    class Kus : Canli
+    {
+        public override void konus()
+        {
+            Console.WriteLine("Cik Cik");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Kopek kopek = new Kopek();
+            Kedi kedi = new Kedi();
+            Kus kus = new Kus();
+            Console.Write("Köpek Konuþuyor : ");
+            kopek.konus();
+            Console.Write("Kedi Konuþuyor : ");
+            kedi.konus();
+            Console.Write("Kuþ Konuþuyor : ");
+            kus.konus();
+
+            Console.ReadKey();
+        }
+    }
+}

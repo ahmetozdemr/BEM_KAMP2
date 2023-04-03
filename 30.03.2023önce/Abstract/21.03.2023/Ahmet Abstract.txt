@@ -1,0 +1,58 @@
+static void Main(string[] args)
+        {
+            Aslan aslan = new Aslan();
+            aslan.Ad = "Kral Alex";
+            aslan.Ayaksayisi = 4;
+            aslan.YedigiHayvan = "Öküz Başlı Antilop";
+            aslan.BeslenmeSekli = "Etcil";
+            aslan.OzellikleriGoster();
+
+
+            Console.Read();
+        }
+    }
+    abstract class Canli
+    {
+        abstract public string Ad { get; set; }
+
+        abstract public void OzellikleriGoster();
+    }
+    abstract class Hayvan : Canli
+    {
+        abstract public string BeslenmeSekli { get; set; }
+        abstract public int Ayaksayisi { get; set; }
+    }
+    abstract class Etcil : Hayvan
+    {
+        abstract public string YedigiHayvan { get; set; }
+
+    }
+    abstract class Otcul : Hayvan
+    {
+        abstract public string YedigiOt { get; set; }
+
+    }
+    class Aslan : Etcil
+    {
+        private string yedigiHayvan;
+        private string beslenmeSekli;
+        private int ayaksayisi;
+        private string ad;
+        public override string YedigiHayvan { get; set; }
+        public override string BeslenmeSekli { get; set; }
+        public override int Ayaksayisi { get; set; }
+        public override string Ad { get; set; }
+
+        public override void OzellikleriGoster()
+        {
+            yedigiHayvan = YedigiHayvan;
+            beslenmeSekli=BeslenmeSekli;
+            ayaksayisi = Ayaksayisi;    
+            ad = Ad;
+
+            Console.WriteLine("Ad : "+ ad);
+            Console.WriteLine("Beslenme Şekli: "+ beslenmeSekli);
+            Console.WriteLine("Ayak Sayisi : "+ ayaksayisi);
+            Console.WriteLine("Yediği Hayvan : "+ yedigiHayvan);
+        }
+    }
