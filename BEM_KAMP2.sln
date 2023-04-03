@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaProjectWinForm", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormAracKiralama", "FormAracKiralama\FormAracKiralama.csproj", "{6B2ED29B-A11D-48F6-8FD7-3DD98E7A5D2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restaurant", "Restaurant\Restaurant.csproj", "{88627A15-64CE-43E2-8033-2EE37695CBC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant", "Restaurant\Restaurant.csproj", "{88627A15-64CE-43E2-8033-2EE37695CBC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Timerr", "Timerr\Timerr.csproj", "{DF071644-AD8D-44F5-B17D-556C599CA711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Timerr", "Timerr\Timerr.csproj", "{DF071644-AD8D-44F5-B17D-556C599CA711}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaOtomasyonu", "PizzaOtomasyonu\PizzaOtomasyonu.csproj", "{2E4AB856-1A3D-4A1C-BCE7-7DB4282E771D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{DF071644-AD8D-44F5-B17D-556C599CA711}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF071644-AD8D-44F5-B17D-556C599CA711}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF071644-AD8D-44F5-B17D-556C599CA711}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4AB856-1A3D-4A1C-BCE7-7DB4282E771D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4AB856-1A3D-4A1C-BCE7-7DB4282E771D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4AB856-1A3D-4A1C-BCE7-7DB4282E771D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4AB856-1A3D-4A1C-BCE7-7DB4282E771D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
